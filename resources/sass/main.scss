@@ -1,0 +1,202 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+html {
+    //font-size: 25px;
+}
+
+
+:root {
+
+    --input-color: #99A3BA;
+    --input-border: #CDD9ED;
+    --input-background: #fff;
+    --input-placeholder: #CBD1DC;
+
+    --input-border-focus: #3490dc;
+
+    --group-color: var(--input-color);
+    --group-border: var(--input-border);
+    --group-background: #EEF4FF;
+
+    --group-color-focus: #fff;
+    --group-border-focus: var(--input-border-focus);
+    --group-background-focus: #3490dc;
+
+}
+
+.form-field {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    border: 1px solid var(--input-border);
+    background: var(--input-background);
+    transition: border .3s ease;
+    &::placeholder {
+        color: var(--input-placeholder);
+    }
+    &:focus {
+        outline: none;
+        border-color: var(--input-border-focus);
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    width: 100%;
+    & > span,
+    .form-field {
+        &.b-form-datepicker {
+            min-height: 43px;
+            margin-bottom: 0px !important;
+
+            label {
+                line-height: 28px;
+            }
+        }
+        white-space: nowrap;
+        display: block;
+        &:not(:first-child):not(:last-child):not(.invalid-feedback) {
+            border-radius: 0;
+        }
+        &:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+        &:last-child:not(.invalid-feedback) {
+            border-radius: 0 6px 6px 0;
+        }
+        &:not(:first-child):not(.invalid-feedback) {
+            margin-left: -1px;
+        }
+    }
+    textarea.form-field {
+        white-space: nowrap;
+        display: block;
+        &:first-child {
+            border-radius: 6px;
+        }
+    }
+    .form-field {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    & > span {
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 25px;
+        color: var(--group-color);
+        background: var(--group-background);
+        border: 1px solid var(--group-border);
+        transition: background .3s ease, border .3s ease, color .3s ease;
+    }
+    &:focus-within {
+        & > span {
+            color: var(--group-color-focus);
+            background: var(--group-background-focus);
+            border-color: var(--group-border-focus);
+        }
+    }
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.report {
+    padding: 20px 10px;
+    border-bottom: 1px solid lightgrey;
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-info {
+        display: inline-block;
+    }
+
+    .accident-info {
+        &> div {
+            display: block;
+
+            &> div {
+                display: inline-block;
+                border-radius: 14px;
+                height: 28px;
+                padding: 2px 10px;
+                margin-bottom: 6px;
+
+                font-size: 14px;
+
+
+                background-color: var(--group-background);
+                color: var(--group-color);
+
+                &> b {
+                    color: #333;
+                }
+            }
+
+        }
+    }
+}
+
+.post {
+    padding: 20px 0;
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba($black, .1);
+    }
+}
+
+input.is-invalid, textarea.is-invalid {
+    border-color: rgb(220, 53, 69) !important;
+}
+
+button.btn-primary {
+    background-color: var(--group-background-focus);
+    border-color: var(--group-border-focus);
+}
+
+.invalid-feedback {
+    display: block !important;
+    text-align: right !important;
+    margin-top: -10px !important;
+    margin-bottom: 15px !important;
+}
